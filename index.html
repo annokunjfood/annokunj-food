@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>অন্নকুঞ্জ ফুড — খাঁটি খাবারের বিশ্বস্ত ঠিকানা</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #15803d;
+      --primary-dark: #166534;
+      --primary-light: #dcfce7;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+      --bg-cream: #faf8f5;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Top Announcement Bar */
+    .top-bar {
+      background-color: var(--primary-dark);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 7px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Navbar */
+    header {
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .brand-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      font-weight: 500;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 15px;
+      color: #111827;
+    }
+    .hero h1 span {
+      color: var(--primary);
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 35px;
+    }
+    .btn {
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-secondary {
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .stats-row {
+      display: flex;
+      gap: 30px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    /* Marquee */
+    .marquee {
+      background: #111827;
+      color: #fff;
+      padding: 12px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 0.95rem;
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: scroll 20s linear infinite;
+    }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Trust Features */
+    .features {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .feature-card h3 {
+      color: var(--primary);
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+    }
+    .feature-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Products Section */
+    .section-title {
+      text-align: center;
+      margin: 60px 0 30px;
+    }
+    .section-title p {
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .section-title h2 {
+      font-size: 2rem;
+      color: #111827;
+    }
+
+    .product-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.06);
+    }
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 16px;
+    }
+    .rating {
+      color: #f59e0b;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 4px 0;
+    }
+    .weight {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+    .price-action {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .old-price {
+      font-size: 0.9rem;
+      text-decoration: line-through;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+    .btn-buy {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-buy:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      margin-top: 80px;
+      padding: 60px 20px 20px;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #374151;
+    }
+    .footer-col h4 {
+      color: #fff;
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    .footer-col ul li a:hover {
+      color: #fff;
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      font-size: 0.85rem;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .btn-group, .stats-row {
+        justify-content: center;
+      }
+      .nav-links {
+        display: none;
+      }
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <span>৳২,০০০ টাকার বেশি অর্ডারে ফ্রি ডেলিভারি · সারা দেশে ক্যাশ অন ডেলিভারি</span>
+    <!-- এখানে আপনার হটলাইন নম্বর পরিবর্তন করুন -->
+    <span>হটলাইন: ০৯৬০০-০০০০০০</span>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-logo">অন্নকুঞ্জ <span>ফুড</span></a>
+      <ul class="nav-links">
+        <li><a href="#">সব পণ্য</a></li>
+        <li><a href="#">ঘি ও তেল</a></li>
+        <li><a href="#">মধু</a></li>
+        <li><a href="#">মসলা</a></li>
+        <li><a href="#">খেজুর ও গুড়</a></li>
+        <li><a href="#" style="color:var(--accent);">🔥 অফার</a></li>
+      </ul>
+      <a href="#products" class="btn btn-primary" style="padding:6px 16px; font-size:0.9rem;">অর্ডার করুন</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <span class="hero-badge">গ্রাম থেকে সরাসরি আপনার রান্নাঘরে</span>
+      <h1>খাঁটি খাবারের<br><span>বিশ্বস্ত ঠিকানা</span></h1>
+      <p>গাওয়া ঘি, সুন্দরবনের মধু, ঘানি ভাঙা সরিষার তেল থেকে রোদে শুকানো মসলা — প্রতিটি পণ্য আমরা নিজেরা উৎস থেকে যাচাই করে আনি।</p>
+      
+      <div class="btn-group">
+        <a href="#products" class="btn btn-primary">এখনই কিনুন</a>
+        <a href="#products" class="btn btn-secondary">আজকের অফার</a>
+      </div>
+
+      <div class="stats-row">
+        <div>
+          <div class="stat-number">৫০,০০০+</div>
+          <div class="stat-label">সন্তুষ্ট গ্রাহক</div>
+        </div>
+        <div>
+          <div class="stat-number">৬৪</div>
+          <div class="stat-label">জেলায় ডেলিভারি</div>
+        </div>
+        <div>
+          <div class="stat-number">৪.৮★</div>
+          <div class="stat-label">গড় রেটিং</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80" alt="খাঁটি অর্গানিক ফুড">
+    </div>
+  </section>
+
+  <!-- Moving Marquee -->
+  <div class="marquee">
+    <div class="marquee-content">
+      খাঁটি গাওয়া ঘি ✦ সুন্দরবনের খলিশা মধু ✦ ঘানি ভাঙা সরিষার তেল ✦ প্রিমিয়াম আজওয়া খেজুর ✦ যশোরের খাঁটি পাটালি গুড় ✦ চিনিগুড়া চাল ✦ শ্রীমঙ্গলের চা ✦ খাঁটি গাওয়া ঘি ✦ সুন্দরবনের খলিশা মধু ✦ ঘানি ভাঙা সরিষার তেল ✦
+    </div>
+  </div>
+
+  <!-- Trust Features -->
+  <section class="features">
+    <div class="feature-card">
+      <h3>১০০% খাঁটি</h3>
+      <p>কোনো ভেজাল বা কেমিক্যাল নেই</p>
+    </div>
+    <div class="feature-card">
+      <h3>সারা দেশে ডেলিভারি</h3>
+      <p>ঢাকায় ২৪–৪৮ ঘণ্টায় হোম ডেলিভারি</p>
+    </div>
+    <div class="feature-card">
+      <h3>ক্যাশ অন ডেলিভারি</h3>
+      <p>পণ্য হাতে পেয়ে টাকা পরিশোধ করুন</p>
+    </div>
+    <div class="feature-card">
+      <h3>সহজ রিটার্ন</h3>
+      <p>পছন্দ না হলে নির্দ্বিধায় ফেরত দিন</p>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section id="products">
+    <div class="section-title">
+      <p>বেস্ট সেলার</p>
+      <h2>সবচেয়ে জনপ্রিয় পণ্যসমূহ</h2>
+    </div>
+
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <span class="badge">১০% ছাড়</span>
+        <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?auto=format&fit=crop&w=500&q=80" alt="ঘি">
+        <div class="product-info">
+          <div class="rating">★ ৪.৯ (১২৮৪)</div>
+          <h3 class="product-title">খাঁটি গাওয়া ঘি</h3>
+          <p class="weight">২৫০ গ্রাম</p>
+          <div class="price-action">
+            <div>
+              <span class="price">৳৪৫০</span>
+              <span class="old-price">৳৫০০</span>
+            </div>
+            <button class="btn-buy">অর্ডার</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <span class="badge">১৫% ছাড়</span>
+        <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=500&q=80" alt="মধু">
+        <div class="product-info">
+          <div class="rating">★ ৪.৮ (৯৩২)</div>
+          <h3 class="product-title">সুন্দরবনের খলিশা মধু</h3>
+          <p class="weight">৫০০ গ্রাম</p>
+          <div class="price-action">
+            <div>
+              <span class="price">৳৫৫০</span>
+              <span class="old-price">৳৬৫০</span>
+            </div>
+            <button class="btn-buy">অর্ডার</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <span class="badge">বেস্ট সেলার</span>
+        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=500&q=80" alt="তেল">
+        <div class="product-info">
+          <div class="rating">★ ৪.৮ (২১০৬)</div>
+          <h3 class="product-title">ঘানি ভাঙা সরিষার তেল</h3>
+          <p class="weight">১ লিটার</p>
+          <div class="price-action">
+            <div>
+              <span class="price">৳৩২০</span>
+            </div>
+            <button class="btn-buy">অর্ডার</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=500&q=80" alt="মসলা">
+        <div class="product-info">
+          <div class="rating">★ ৪.৯ (৭৭৬)</div>
+          <h3 class="product-title">রোদে শুকানো হলুদ গুঁড়া</h3>
+          <p class="weight">২৫০ গ্রাম</p>
+          <div class="price-action">
+            <div>
+              <span class="price">৳১৬০</span>
+            </div>
+            <button class="btn-buy">অর্ডার</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <a href="#" class="brand-logo" style="color:#fff; font-size:1.4rem;">অন্নকুঞ্জ <span style="color:var(--accent);">ফুড</span></a>
+        <p style="margin-top:12px; font-size:0.9rem;">গ্রামের মাঠ, বন আর খামার থেকে সরাসরি সংগ্রহ করা খাঁটি খাবার আমরা পৌঁছে দিই আপনার রান্নাঘরে।</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>ক্যাটাগরি</h4>
+        <ul>
+          <li><a href="#">ঘি ও তেল</a></li>
+          <li><a href="#">খাঁটি মধু</a></li>
+          <li><a href="#">মসলাপাতি</a></li>
+          <li><a href="#">খেজুর ও বাদাম</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>সহায়তা</h4>
+        <ul>
+          <li><a href="#">অর্ডার ট্র্যাকিং</a></li>
+          <li><a href="#">ডেলিভারি পলিসি</a></li>
+          <li><a href="#">রিটার্ন নীতি</a></li>
+          <li><a href="#">আমাদের সম্পর্কে</a></li>
+        </ul>
+      </div>
+
+      <!-- এখানে আপনার ঠিকানা ও নম্বর পরিবর্তন করতে পারবেন -->
+      <div class="footer-col">
+        <h4>যোগাযোগ</h4>
+        <ul>
+          <li>📍বিসিক শিল্পনগরী, পাবনা</li>
+          <li>📞+88016365-57014 (সকাল ৯টা – রাত ১০টা)</li>
+          <li>✉️ annokunj.food@gmail.com</li>
+          <li style="margin-top:10px; color:#fff;">পেমেন্ট: ক্যাশ অন ডেলিভারি, বিকাশ, নগদ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © ২০২৬ অন্নকুঞ্জ ফুড · সর্বস্বত্ব সংরক্ষিত
+    </div>
+  </footer>
+
+</body>
+</html>
